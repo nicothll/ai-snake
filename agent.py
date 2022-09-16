@@ -22,14 +22,11 @@ class Agent:
         self.model: Linear_QNet = Linear_QNet(
             input_dim=11, hidden_dim=256, output_dim=3
         )  # input= Size of the state, output= size of the action eg.[1, 0, 0]
-        for param in self.model.parameters():
-            print(param)
-        if self.model.load:
-            self.model.load_state_dict(self.model.load())
+
+        params = self.model.load()
+        if params:
+            self.model.load_state_dict(params)
             self.model.eval()
-            print("LOADED")
-            for param in self.model.parameters():
-                print(param)
 
         self.trainer: QTrainer = QTrainer(
             self.model, lr=LEARNING_RATE, gamma=self.gamma
