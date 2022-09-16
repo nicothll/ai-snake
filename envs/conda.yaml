@@ -1,0 +1,11 @@
+name: ai_snake
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - matplotlib
+  - ipython
+  - black
+
+# install pytorch: README.md
+# pip install pygame
