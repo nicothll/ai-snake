@@ -33,7 +33,7 @@ BLUE2 = (0, 100, 255)
 
 # Parameters
 BLOCK_SIZE: int = 20
-SPEED: int = 10
+SPEED: int = 40
 
 
 class SnakeGameAI:
@@ -105,7 +105,7 @@ class SnakeGameAI:
         self.clock.tick(SPEED)
 
         # 6. Return Game Over and Score
-        return game_over, self.score
+        return reward, game_over, self.score
 
     def is_collision(self, pt=None):
         if pt is None:
